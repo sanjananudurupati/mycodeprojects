@@ -1,0 +1,35 @@
+import random #importing random module
+
+highest_value = input("Type a number: ") #Asking the user for the upper limit of the number
+
+if highest_value.isdigit(): #checking if the value entered by the user is a number
+    highest_value = int(highest_value) #converting the user input from string to integer
+
+    if highest_value <= 0: #checking for negative numbers
+        print('Please type a number larger than 0 next time.')
+        quit() #quitting the program if negative integer is entered
+else:
+    print('Please type a number next time.') #specifically asking the user for numerical input
+    quit() #quitting the program if the input is non numerical
+
+random_number = random.randint(0, highest_value) #asking the computer to generate random numbers in the range of 0 to user input
+guesses = 0 #initializing number of guesses made by the user
+
+while True:
+    guesses += 1 #incrementing the number of guesses for each guess
+    player_guess = input("Make a guess of the number: ") #asking the user to make a guess
+    if player_guess.isdigit():
+        player_guess = int(player_guess)
+    else:
+        print('Please type a number next time.')
+        continue #returns to the starting of the while loop
+
+    if player_guess == random_number: #checking equality of user guess and computer generated random number
+        print("You got it!")
+        break #breaking out of the while loop and finishing the program
+    elif player_guess > random_number: #user guess is greater than computer generated number
+        print("You were above the number, better luck next time!")
+    else: #user guess is lesser than computer generated number
+        print("You were below the number, better luck next time!")
+
+print("You got it in", guesses, "guesses") #displaying total number of guesses made by the user
