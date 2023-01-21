@@ -1,0 +1,39 @@
+import random #importing random module
+
+player_wins = 0
+computer_wins = 0
+#initializing number of user wins and computer wins to 0
+choices = ["rock", "paper", "scissors"]
+#using a list to display the options for the user and the computer to choose from
+while True:
+    user_input = input("Type Rock/Paper/Scissors or Q to quit: ").lower() #asking the user to make a choice or to quit the game
+    if user_input == "q":
+        break #quitting the game
+
+    if user_input not in choices:
+        continue #going back to the beginning of the while loop to ask user input
+
+    random_number = random.randint(0, 2) #asking the computer to generate random numbers in the given range
+    #rock, paper and scissors of choices correspond to 0,1,2 of random_number respectively
+    computer_pick = choices[random_number]
+    print("Computer picked", computer_pick + ".") #displaying what computer picked
+
+    if user_input == "rock" and computer_pick == "scissors":
+        print("You won!") #user wins for the above combination
+        player_wins += 1 #user score incremented by 1
+
+    elif user_input == "paper" and computer_pick == "rock":
+        print("You won!") #user wins for the above combination
+        player_wins += 1 #user score incremented by 1
+
+    elif user_input == "scissors" and computer_pick == "paper":
+        print("You won!") #user wins for the above combination
+        player_wins += 1 #user score incremented by 1
+
+    else:
+        print("You lost!") #computer wins in otherwise combination
+        computer_wins += 1 #computer score incremented by 1
+    #game stops only when user quits
+print("You won " + str(player_wins) + " times.") #displaying number of times user won
+print("The computer won "+ str(computer_wins) + " times.") #displaying number of times computer won
+print("Goodbye!")
