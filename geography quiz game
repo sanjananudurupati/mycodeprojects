@@ -1,0 +1,49 @@
+print("Welcome to my geography quiz!") #displaying a welcome message
+
+to_play = input("Would you like to play? ") #asking the user if they would play
+
+if to_play.lower() != "yes":
+    quit() #quit the program if the user doesn't want to play
+
+print("Okay! Let's play :)")
+points = 0 #initializing the points got to 0
+
+answer = input("Where is the Mount Everest? ") #asking a question
+if answer.lower() == "himalayas": #checking the answer after converting it to lower case
+    print('Correct!') #displaying as correct answer
+    points += 1 #incrementing points by 1 for each correct answer
+else:
+    print("Incorrect!") #displaying as incorrect answer
+#same process being repeated for all questions
+answer = input("What kind of a landform is India? ")
+if answer.lower() == "peninsula":
+    print('Correct!')
+    points += 1
+else:
+    print("Incorrect!")
+
+answer = input("Where are the seven sisters? ")
+if answer.lower() == "north east":
+    print('Correct!')
+    points += 1
+else:
+    print("Incorrect!")
+
+answer = input("What is the ssouthern most tip of India called? ")
+if answer.lower() == "kanyakumari":
+    print('Correct!')
+    points += 1
+else:
+    print("Incorrect!")
+    
+answer = input("What is the national language of India? ")
+if answer.lower() == "hindi":
+    print('Correct!')
+    points += 1
+else:
+    print("Incorrect!")
+
+print("You got " + str(points) + " questions correct and " + str(5 - points) + " questions incorrect!")
+#displaying number of correct answers and incorrect answers
+print("You got " + str((points / 5) * 100) + "%.")
+#displaying percentage of correct answers obtained
